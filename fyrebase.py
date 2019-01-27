@@ -73,3 +73,17 @@ for x in xrange(0, len(depts)):
 		#storage.child("events").child(curDept).child(curEvent).child("event.xml").put("a.svg")
 		print("Upload finished. Press enter to download next.")
 		ent = raw_input("")
+		
+		
+		
+from selenium import webdriver
+
+profile = webdriver.FirefoxProfile()
+profile.set_preference("browser.download.folderList", 2)
+profile.set_preference("browser.download.manager.showWhenStarting", False)
+profile.set_preference("browser.download.dir", 'PATH TO DESKTOP')
+profile.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/x-gzip")
+
+driver = webdriver.Firefox(firefox_profile=profile)
+driver.get("Name of web site I'm grabbing from")
+driver.find_element_by_xpath("//a[contains(text(), 'DEV.tgz')]").click()
