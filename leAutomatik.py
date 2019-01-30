@@ -1,5 +1,6 @@
 import pyrebase
 from sample import the
+import os
 
 '''config = {
     "apiKey": "AIzaSyDYWRcuwOEDLvdRq6nVDrpnoCO2bXybWb4",
@@ -65,11 +66,12 @@ for x in range(0, len(depts)):
 
         # Enter processing stuff here.
 
+		os.rename("/home/martin/Downloads/a.xml", "/home/martin/Desktop/a.xml")
 		print("Uploading...")
 		#uploads to the database. HANDLE WITH CARE.
-		#storage.child("events").child(curDept).child(curEvent).child("event.xml").put("a.xml")
+		storage.child("events").child(curDept).child(curEvent).child("event.xml").put("/home/martin/Desktop/a.xml")
 		finished.append(curEvent)
-		ent = input("press 1 to continue")
+		print("Upload completed.")
                 
                 
 
